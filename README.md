@@ -35,7 +35,7 @@ If the video does not render in your browser, open the [direct demo link](https:
 ## 💡 Introduction
 
 <div align="center">
-  <img src="https://qianwen-res.oss-accelerate.aliyuncs.com/qwenrobot/robotnav/fig_teaser.png" alt="Qwen-RobotNav Overview" width="90%"/>
+  <img src="assets/images/fig_teaser.png" alt="Qwen-RobotNav Overview" width="90%"/>
 </div>
 
 <br>
