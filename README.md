@@ -31,6 +31,16 @@ Welcome to the official repository of **Qwen-RobotNav**. Here, you can find offi
 
 If the video does not render in your browser, open the [direct demo link](https://github.com/user-attachments/assets/4ea593b6-8b6b-46c1-be50-04e9c997fe09).
 
+### Feature Highlights
+
+This blog demo highlights the key design features of Qwen-RobotNav: unified multi-domain navigation, controllable observation context, agentic tool-call style execution, and zero-shot real-world deployment.
+
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/019e8009-3dc3-4c48-8944-83e09dcb2f47" width="100%" controls></video>
+</div>
+
+If the feature video does not render in your browser, open the [direct feature demo link](https://github.com/user-attachments/assets/019e8009-3dc3-4c48-8944-83e09dcb2f47).
+
 
 ## 💡 Introduction
 
