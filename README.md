@@ -152,6 +152,10 @@ The task-adaptive observation interface is evaluated by changing inference-time 
 | Visual token budget `B` | `B=2048` to `4608`, fixed `gamma=2.0` | SR improves from **70.8%** to **74.6%**; OSR rises from **78.9%** and peaks at **82.7%** when `B=3584` | More visual context helps goal reaching, but very large context shows diminishing returns. |
 | Temporal decay `gamma` | `gamma=0.5` to `3.5`, fixed `B=3072` | OSR improves from **78.8%** to **82.6%**; SR peaks at **72.5%** when `gamma=3.0` | Stronger recency bias improves current-scene resolution, but can trade off early-history context. |
 
+<div align="center">
+  <img src="assets/images/interface_ablation.png" alt="Qwen-RobotNav Interface Ablation" width="90%"/>
+</div>
+
 This supports the core design choice of exposing context as a controllable interface. A long-horizon route-following call can allocate more tokens to historical frames, while tracking or local approach can emphasize recent observations without retraining or changing the architecture.
 
 
