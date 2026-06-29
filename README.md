@@ -133,6 +133,28 @@ With the agentic navigation system, Qwen-RobotNav improves both exploration qual
 | ReflectDrive | 97.7 | 99.3 | 93.5 | 100 | 86.9 | 91.1 |
 | **Qwen-RobotNav-4B** | **99.8** | 97.5 | **98.5** | 99.9 | 84.4 | **91.4** |
 
+### Interface Ablation
+
+The task-adaptive observation interface is evaluated by changing inference-time context controls on **500 VLN-CE R2R Val-Unseen episodes** with Qwen-RobotNav-4B. These ablations show that the interface is not just a formatting choice: changing the call-time configuration changes how the same model trades off long-term memory, current-scene fidelity, and path execution.
+
+| Interface Control | Sweep Setting | Key Result | Takeaway |
+| :--- | :--- | :--- | :--- |
+| Visual token budget `B` | `B=2048` to `4608`, fixed `gamma=2.0` | SR improves from **70.8%** to **74.6%**; OSR rises from **78.9%** and peaks at **82.7%** when `B=3584` | More visual context helps goal reaching, but very large context shows diminishing returns. |
+| Temporal decay `gamma` | `gamma=0.5` to `3.5`, fixed `B=3072` | OSR improves from **78.8%** to **82.6%**; SR peaks at **72.5%** when `gamma=3.0` | Stronger recency bias improves current-scene resolution, but can trade off early-history context. |
+
+This supports the core design choice of exposing context as a controllable interface. A long-horizon route-following call can allocate more tokens to historical frames, while tracking or local approach can emphasize recent observations without retraining or changing the architecture.
+
+
+## 🌍 Real-World Deployment
+
+Qwen-RobotNav is deployed zero-shot on a **Unitree Go2** quadruped robot with on-device inference via **NVIDIA Jetson Thor**, achieving **196 ms latency (5.1 Hz)** in the blog deployment. The only visual input is the Go2's built-in low-resolution camera, and the real-world experiments are conducted in previously unseen environments without environment-specific fine-tuning.
+
+- **Fine-grained indoor control.** In an apartment setting, the robot follows step-by-step natural-language instructions across the bedroom, living room, and bathroom, while responding to spatial directives such as stopping at a specified side of furniture or taking a detour before exiting a room.
+
+- **Long-horizon instruction following.** In an unseen exhibition hall, the robot navigates **21.78 m** from a living-room area to a hospital room using pure language instructions, grounding the route in landmarks such as furniture, doorways, and signage. It then receives a reverse command and retraces the route back toward the starting pose, testing bidirectional spatial grounding rather than one-way route execution.
+
+- **Agentic navigation.** For the open-ended request "check whether a green umbrella was left at Cotti Coffee," the upper-level agent decomposes the task into sub-goals, uses corridor landmarks for localization, asks Qwen-RobotNav to execute grounded navigation segments, inspects the target scene, and returns an evidence-grounded answer without human intervention.
+
 
 ## 📜 Citation
 
