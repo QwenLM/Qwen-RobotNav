@@ -13,7 +13,7 @@
 <p align="center">
     <a href="https://arxiv.org/abs/2606.18112">📑 Technical Report</a> |
     <a href="https://qwen.ai/blog?id=qwen-robotnav">📖 Blog</a> |
-    <a href="assets/videos/big_agent_preview.mp4">🖥️ Demo</a>
+    <a href="https://github.com/user-attachments/assets/4ea593b6-8b6b-46c1-be50-04e9c997fe09">🖥️ Demo</a>
 </p>
 
 </div>
@@ -26,10 +26,10 @@ Welcome to the official repository of **Qwen-RobotNav**. Here, you can find offi
 ## 🎬 Demo
 
 <div align="center">
-  <video src="assets/videos/big_agent_preview.mp4" width="100%" controls></video>
+  <video src="https://github.com/user-attachments/assets/4ea593b6-8b6b-46c1-be50-04e9c997fe09" width="100%" controls></video>
 </div>
 
-If the video does not render in your browser, open the [direct demo link](assets/videos/big_agent_preview.mp4).
+If the video does not render in your browser, open the [direct demo link](https://github.com/user-attachments/assets/4ea593b6-8b6b-46c1-be50-04e9c997fe09).
 
 
 ## 💡 Introduction
