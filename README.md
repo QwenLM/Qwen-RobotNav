@@ -13,7 +13,7 @@
 <p align="center">
     <a href="https://arxiv.org/abs/2606.18112">📑 Technical Report</a> |
     <a href="https://qwen.ai/blog?id=qwen-robotnav">📖 Blog</a> |
-    <a href="https://github.com/user-attachments/assets/4ea593b6-8b6b-46c1-be50-04e9c997fe09">🖥️ Demo</a>
+    <a href="https://github.com/user-attachments/assets/3a579257-9852-42f7-b78a-6ab6094e7d8e">🖥️ Demo</a>
 </p>
 
 </div>
@@ -26,20 +26,20 @@ Welcome to the official repository of **Qwen-RobotNav**. Here, you can find offi
 ## 🎬 Demo
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/4ea593b6-8b6b-46c1-be50-04e9c997fe09" width="100%" controls></video>
+  <video src="https://github.com/user-attachments/assets/3a579257-9852-42f7-b78a-6ab6094e7d8e" width="100%" controls></video>
 </div>
 
-If the video does not render in your browser, open the [direct demo link](https://github.com/user-attachments/assets/4ea593b6-8b6b-46c1-be50-04e9c997fe09).
+If the video does not render in your browser, open the [direct demo preview link](https://github.com/user-attachments/assets/3a579257-9852-42f7-b78a-6ab6094e7d8e). For the full-length high-resolution source, open [big_agent.mp4](https://qianwen-res.oss-accelerate.aliyuncs.com/qwenrobot/robotnav/big_agent.mp4).
 
 ### Feature Highlights
 
 This blog demo highlights the key design features of Qwen-RobotNav: unified multi-domain navigation, controllable observation context, agentic tool-call style execution, and zero-shot real-world deployment.
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/019e8009-3dc3-4c48-8944-83e09dcb2f47" width="100%" controls></video>
+  <video src="https://github.com/user-attachments/assets/d80211d2-301f-4b70-8806-10adfc0a7e11" width="100%" controls></video>
 </div>
 
-If the feature video does not render in your browser, open the [direct feature demo link](https://github.com/user-attachments/assets/019e8009-3dc3-4c48-8944-83e09dcb2f47).
+If the feature video does not render in your browser, open the [direct feature preview link](https://github.com/user-attachments/assets/d80211d2-301f-4b70-8806-10adfc0a7e11). For the full-length high-resolution source, open [Nav_blog_demo.mov](https://qianwen-res.oss-accelerate.aliyuncs.com/qwenrobot/robotnav/Nav_blog_demo.mov).
 
 
 ## 💡 Introduction
@@ -163,11 +163,29 @@ This supports the core design choice of exposing context as a controllable inter
 
 Qwen-RobotNav is deployed zero-shot on a **Unitree Go2** quadruped robot with on-device inference via **NVIDIA Jetson Thor**, achieving **196 ms latency (5.1 Hz)** in the blog deployment. The only visual input is the Go2's built-in low-resolution camera, and the real-world experiments are conducted in previously unseen environments without environment-specific fine-tuning.
 
+### Agentic Deployment Demo
+
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/c31a1f17-d4f8-4326-8803-d3bc57c7fe57" width="100%" controls></video>
+</div>
+
+If the deployment video does not render in your browser, open the [direct deployment preview link](https://github.com/user-attachments/assets/c31a1f17-d4f8-4326-8803-d3bc57c7fe57). For the full-length high-resolution source, open [agent_demo.mp4](https://qianwen-res.oss-accelerate.aliyuncs.com/qwenrobot/robotnav/agent_demo.mp4).
+
+### Deployment Results
+
+| Scenario | Setup | Result |
+| :--- | :--- | :--- |
+| Fine-grained indoor control | Apartment deployment with the Go2 built-in camera and step-by-step natural-language commands | Traverses bedroom, living room, and bathroom while responding to fine-grained spatial directives. |
+| 21.78 m back-and-forth VLN | Unseen exhibition hall, from living-room area to hospital room and then reverse route | Maintains landmark grounding over a long route and executes bidirectional language-conditioned control. |
+| Agentic navigation | Open-ended Cotti Coffee umbrella query with planner calls to Qwen-RobotNav | Decomposes the task into sub-goals, navigates with corridor landmarks, inspects the target scene, and returns an evidence-grounded answer. |
+
 - **Fine-grained indoor control.** In an apartment setting, the robot follows step-by-step natural-language instructions across the bedroom, living room, and bathroom, while responding to spatial directives such as stopping at a specified side of furniture or taking a detour before exiting a room.
 
 - **Long-horizon instruction following.** In an unseen exhibition hall, the robot navigates **21.78 m** from a living-room area to a hospital room using pure language instructions, grounding the route in landmarks such as furniture, doorways, and signage. It then receives a reverse command and retraces the route back toward the starting pose, testing bidirectional spatial grounding rather than one-way route execution.
 
 - **Agentic navigation.** For the open-ended request "check whether a green umbrella was left at Cotti Coffee," the upper-level agent decomposes the task into sub-goals, uses corridor landmarks for localization, asks Qwen-RobotNav to execute grounded navigation segments, inspects the target scene, and returns an evidence-grounded answer without human intervention.
+
+Additional full-length deployment sources: [apartment case 1](https://qianwen-res.oss-accelerate.aliyuncs.com/qwenrobot/robotnav/indoor_case_1.mp4), [apartment case 2](https://qianwen-res.oss-accelerate.aliyuncs.com/qwenrobot/robotnav/indoor_case_2.mp4), [apartment case 3](https://qianwen-res.oss-accelerate.aliyuncs.com/qwenrobot/robotnav/indoor_case_3.mp4), [apartment case 4](https://qianwen-res.oss-accelerate.aliyuncs.com/qwenrobot/robotnav/indoor_case_4.mp4), [living room to hospital room](https://qianwen-res.oss-accelerate.aliyuncs.com/qwenrobot/robotnav/robot_living_room.mp4), and [hospital room to living room](https://qianwen-res.oss-accelerate.aliyuncs.com/qwenrobot/robotnav/robot_hospital_room.mp4).
 
 
 ## 📜 Citation
